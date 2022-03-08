@@ -367,7 +367,7 @@ highlight! link TSConstMacro OrangeItalic
 highlight! link TSConstant OrangeItalic
 highlight! link TSConstructor Green
 highlight! link TSException Red
-highlight! link TSField Green
+highlight! link TSField Orange
 highlight! link TSFloat Purple
 highlight! link TSFuncBuiltin Green
 highlight! link TSFuncMacro Green
@@ -833,6 +833,19 @@ call sonokai#highlight('BufferInactiveSign', s:palette.grey_dim, s:palette.bg2)
 call sonokai#highlight('BufferInactiveTarget', s:palette.yellow, s:palette.bg2, 'bold')
 call sonokai#highlight('BufferTabpages', s:palette.bg0, s:palette.blue, 'bold')
 call sonokai#highlight('BufferTabpageFill', s:palette.bg0, s:palette.bg0)
+" }}}
+" akinsho/bufferline.nvim {{{
+call sonokai#highlight('BufferLineTab', s:palette.bg0, s:palette.green)
+highlight! link BufferLineFill BufferTabpageFill
+highlight! link BufferLineBackground BufferInactive
+highlight! link BufferLineBufferSelected BufferLineTab
+highlight! link BufferLineBufferVisible BufferLineTab
+highlight! link BufferLineTabSelected BufferLineTab
+highlight! link BufferLineTabClose BufferLineTab
+highlight! link BufferLineIndicatorSelected BufferLineTab
+highlight! link BufferLineSeparator BufferTabpageFill
+highlight! link BufferLineBufferSeparatorVisible BufferTabpageFill
+highlight! link BufferLineBufferSeparatorSelected BufferTabpageFill
 " }}}
 " rcarriga/nvim-notify {{{
 highlight! link NotifyERRORBorder Red

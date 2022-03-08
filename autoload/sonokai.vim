@@ -181,6 +181,32 @@ function! sonokai#get_palette(style) "{{{
           \ 'grey_dim':   ['#6a5e59',   '240'],
           \ 'none':       ['NONE',      'NONE']
           \ }
+  elseif a:style ==# '20k-ultra'
+    let palette = {
+          \ 'black':      ['#181819',   '237'],
+          \ 'bg0':        ['#1b1d1e',   '235'],
+          \ 'bg1':        ['#33353f',   '236'],
+          \ 'bg2':        ['#363944',   '236'],
+          \ 'bg3':        ['#3b3e48',   '237'],
+          \ 'bg4':        ['#414550',   '237'],
+          \ 'bg_red':     ['#ff6077',   '203'],
+          \ 'diff_red':   ['#55393d',   '52'],
+          \ 'bg_green':   ['#a7df78',   '107'],
+          \ 'diff_green': ['#394634',   '22'],
+          \ 'bg_blue':    ['#85d3f2',   '110'],
+          \ 'diff_blue':  ['#354157',   '17'],
+          \ 'diff_yellow':['#4e432f',   '54'],
+          \ 'fg':         ['#F8F8F2',   '250'],
+          \ 'red':        ['#F92672',   '203'],
+          \ 'orange':     ['#FD971F',   '215'],
+          \ 'yellow':     ['#E6DB74',   '179'],
+          \ 'green':      ['#A6E22E',   '107'],
+          \ 'blue':       ['#66D9EF',   '110'],
+          \ 'purple':     ['#AE81FF',   '176'],
+          \ 'grey':       ['#7f8490',   '246'],
+          \ 'grey_dim':   ['#595f6f',   '240'],
+          \ 'none':       ['NONE',      'NONE']
+          \ }
   endif
   return palette
 endfunction "}}}
