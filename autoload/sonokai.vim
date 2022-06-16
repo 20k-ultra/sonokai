@@ -8,7 +8,7 @@
 
 function! sonokai#get_configuration() "{{{
   return {
-        \ 'style': get(g:, 'sonokai_style', 'default'),
+        \ 'style': get(g:, 'sonokai_style', '20k-ultra'),
         \ 'colors_override': get(g:, 'sonokai_colors_override', {}),
         \ 'transparent_background': get(g:, 'sonokai_transparent_background', 0),
         \ 'disable_italic_comment': get(g:, 'sonokai_disable_italic_comment', 0),
