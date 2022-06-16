@@ -9,6 +9,7 @@
 function! sonokai#get_configuration() "{{{
   return {
         \ 'style': get(g:, 'sonokai_style', 'default'),
+        \ 'colors_override': get(g:, 'sonokai_colors_override', {}),
         \ 'transparent_background': get(g:, 'sonokai_transparent_background', 0),
         \ 'disable_italic_comment': get(g:, 'sonokai_disable_italic_comment', 0),
         \ 'enable_italic': get(g:, 'sonokai_enable_italic', 0),
@@ -21,10 +22,11 @@ function! sonokai#get_configuration() "{{{
         \ 'diagnostic_text_highlight': get(g:, 'sonokai_diagnostic_text_highlight', 0),
         \ 'diagnostic_line_highlight': get(g:, 'sonokai_diagnostic_line_highlight', 0),
         \ 'diagnostic_virtual_text': get(g:, 'sonokai_diagnostic_virtual_text', 'grey'),
+        \ 'disable_terminal_colors': get(g:, 'sonokai_disable_terminal_colors', 0),
         \ 'better_performance': get(g:, 'sonokai_better_performance', 0),
         \ }
 endfunction "}}}
-function! sonokai#get_palette(style) "{{{
+function! sonokai#get_palette(style, colors_override) "{{{
   if a:style ==# 'default'
     let palette = {
           \ 'black':      ['#181819',   '237'],
@@ -208,7 +210,7 @@ function! sonokai#get_palette(style) "{{{
           \ 'none':       ['NONE',      'NONE']
           \ }
   endif
-  return palette
+  return extend(palette, a:colors_override)
 endfunction "}}}
 function! sonokai#highlight(group, fg, bg, ...) "{{{
   execute 'highlight' a:group
@@ -220,9 +222,7 @@ function! sonokai#highlight(group, fg, bg, ...) "{{{
           \ a:1 :
           \ 'NONE')
         \ 'cterm=' . (a:0 >= 1 ?
-          \ (a:1 ==# 'undercurl' ?
-            \ 'underline' :
-            \ a:1) :
+          \ a:1 :
           \ 'NONE')
         \ 'guisp=' . (a:0 >= 2 ?
           \ a:2[0] :
@@ -275,7 +275,7 @@ function! sonokai#syn_write(rootpath, syn, content) "{{{
   if matchstr(a:content, 'sonokai#highlight') !=# ''
     call writefile([
           \ 'let s:configuration = sonokai#get_configuration()',
-          \ 'let s:palette = sonokai#get_palette(s:configuration.style)'
+          \ 'let s:palette = sonokai#get_palette(s:configuration.style, s:configuration.colors_override)'
           \ ], syn_path, 'a')
   endif
   " Append the content.
